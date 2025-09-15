@@ -7,45 +7,39 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      background-color: #FFF5E1; /* màu nền dịu theo màu app */
       margin: 0;
       padding: 0;
-      color: #333;
+      color: #654321; /* text chính giống màu app */
     }
     header {
-      position: relative;
       text-align: center;
     }
     header img {
       width: 100%;
-      height: auto;
-      display: block;
-      max-height: 400px;
+      max-height: 250px; /* banner nhỏ gọn hơn */
       object-fit: cover;
+      display: block;
+      border-bottom: 3px solid #F2DFC2; /* viền nhấn màu header */
     }
-    header .banner-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-      padding: 0 10px;
+    .banner-text {
       text-align: center;
-      max-width: 90%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #654321;
+      margin: 15px auto 25px;
+      max-width: 80%;
     }
     .container {
       max-width: 900px;
-      margin: 20px auto;
+      margin: 0 auto;
       padding: 0 15px;
     }
     h1 {
       text-align: center;
       font-size: 28px;
       margin-bottom: 20px;
-      color: #0066cc;
+      color: #8B4513; /* tiêu đề nổi bật hơn một chút */
     }
     .app-grid {
       display: grid;
@@ -65,11 +59,13 @@
       transform: translateY(-4px);
     }
     .app-card img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
+      width: 100px; /* kích thước đồng nhất */
+      height: 100px;
+      object-fit: contain;
       border-radius: 20%;
       margin-bottom: 10px;
+      background-color: #fafafa;
+      padding: 10px;
     }
     .contact {
       margin-top: 40px;
@@ -78,24 +74,24 @@
       color: #555;
     }
     .contact a {
-      color: #0066cc;
+      color: #8B4513;
       text-decoration: none;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="image/banner.png" alt="App Bridge Banner">
-    <div class="banner-text">
-      Khám phá công nghệ thông minh, mang lại niềm vui và tiện ích cho cuộc sống mỗi ngày!
-    </div>
+    <img src="image/banner.jpg" alt="App Bridge Banner">
   </header>
+
+  <div class="banner-text">
+    Khám phá công nghệ thông minh, mang lại niềm vui và tiện ích cho cuộc sống mỗi ngày!
+  </div>
 
   <div class="container">
     <h1>Ứng dụng của chúng tôi</h1>
-    <div class="app-grid" id="appList">
-      <!-- Danh sách ứng dụng sẽ được thêm tự động bằng JS -->
-    </div>
+    <div class="app-grid" id="appList"></div>
+
     <div class="contact">
       <p>Nhà phát triển: <strong>App Bridge</strong></p>
       <p>Email: <a href="mailto:leconglongvu@gmail.com">leconglongvu@gmail.com</a></p>
@@ -106,26 +102,18 @@
   </div>
 
   <script>
-    // Danh sách ứng dụng (thay tên file icon theo đúng trong thư mục logo)
     const apps = [
-      {
-        name: "Công Suất Sạc",
-        icon: "logo/congsuatsac.png",
-        url: "https://play.google.com/store/apps/details?id=com.example.congsuatsac"
-      },
-      {
-        name: "App Khác",
-        icon: "logo/appkhac.png",
-        url: "https://play.google.com/store/apps/details?id=com.example.appkhac"
-      }
+      { name: "Công Suất Sạc", icon: "image/chargin-power-logo.png", url: "https://play.google.com/store/apps/details?id=vn.lecon.device.info" },
+      { name: "Ngày Gọn Gàng", icon: "image/ngay-gon-gang-logo.png", url: "https://play.google.com/store/apps/details?id=vn.lecon.smart_todo_list" },
+      { name: "Kết Nối WiFi", icon: "image/wifi-connection-logo.png", url: "https://play.google.com/store/apps/details?id=vn.icheck.connect.wifi" },
+      { name: "Tải Nhiều File(s)", icon: "image/tai-nhieu-files-logo.png", url: "https://play.google.com/store/apps/details?id=vn.lecon.download.files" }
     ];
 
     const appList = document.getElementById("appList");
     apps.forEach(app => {
       const card = document.createElement("div");
       card.className = "app-card";
-      card.innerHTML = `<img src="${app.icon}" alt="${app.name}">
-                        <div>${app.name}</div>`;
+      card.innerHTML = `<img src="${app.icon}" alt="${app.name}"><div>${app.name}</div>`;
       card.addEventListener("click", () => window.open(app.url, "_blank"));
       appList.appendChild(card);
     });
