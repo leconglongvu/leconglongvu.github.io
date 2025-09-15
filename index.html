@@ -1,77 +1,134 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ngày Gọn Gàng</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Bridge – Ứng dụng của chúng tôi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      position: relative;
+      text-align: center;
+    }
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 400px;
+      object-fit: cover;
+    }
+    header .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      padding: 0 10px;
+      text-align: center;
+      max-width: 90%;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #0066cc;
+    }
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+    }
+    .app-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 15px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .app-card:hover {
+      transform: translateY(-4px);
+    }
+    .app-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 20%;
+      margin-bottom: 10px;
+    }
+    .contact {
+      margin-top: 40px;
+      font-size: 14px;
+      text-align: center;
+      color: #555;
+    }
+    .contact a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-10">
-    <div class="max-w-4xl mx-auto text-center px-4">
-      <h1 class="text-4xl font-bold mb-4">Ngày Gọn Gàng</h1>
-      <p class="text-lg">Tập trung vào công việc hôm nay – đơn giản, hiệu quả, không rườm rà!</p>
+<body>
+  <header>
+    <img src="image/banner.png" alt="App Bridge Banner">
+    <div class="banner-text">
+      Khám phá công nghệ thông minh, mang lại niềm vui và tiện ích cho cuộc sống mỗi ngày!
     </div>
   </header>
 
-  <!-- Giới thiệu -->
-  <section class="max-w-4xl mx-auto py-12 px-6">
-    <p class="text-lg mb-6">
-      Ứng dụng giúp bạn lập kế hoạch, theo dõi và hoàn thành công việc trong ngày mà không bị phân tâm bởi các tính năng dư thừa.
-      <br>Không cần đăng nhập, không lưu trữ dài hạn – chỉ tập trung vào việc bạn cần làm hôm nay.
-    </p>
-  </section>
-
-  <!-- Tính năng chính -->
-  <section class="bg-white shadow-md rounded-2xl max-w-4xl mx-auto py-10 px-6 mb-12">
-    <h2 class="text-2xl font-semibold mb-6 text-center">🎯 Tính năng chính</h2>
-    <ul class="space-y-4 text-lg">
-      <li>✔️ Thêm nhanh công việc cho hôm nay với mô tả, tiến độ và độ ưu tiên.</li>
-      <li>✔️ Giao diện tối giản, dễ dùng, không cần tài khoản.</li>
-      <li>✔️ Phân loại công việc theo mức độ ưu tiên: <span class="font-medium">Cao – Trung bình – Thấp</span>.</li>
-      <li>✔️ Đánh dấu hoàn thành dễ dàng, tự động chuyển sang danh sách “Đã hoàn thành”.</li>
-      <li>✔️ Hủy bỏ hoặc làm lại công việc bất kỳ lúc nào trong ngày.</li>
-    </ul>
-  </section>
-
-  <!-- Phù hợp với bạn -->
-  <section class="max-w-4xl mx-auto py-10 px-6 text-center">
-    <h2 class="text-2xl font-semibold mb-6">🔥 Phù hợp với bạn nếu:</h2>
-    <div class="grid gap-6 md:grid-cols-3">
-      <div class="bg-white shadow rounded-xl p-6">
-        <p>✅ Bạn chỉ cần một app đơn giản để kiểm soát công việc trong ngày.</p>
-      </div>
-      <div class="bg-white shadow rounded-xl p-6">
-        <p>✅ Bạn không muốn các app rườm rà, phức tạp, bắt đăng ký tài khoản.</p>
-      </div>
-      <div class="bg-white shadow rounded-xl p-6">
-        <p>✅ Bạn muốn hoàn thành việc hàng ngày hiệu quả hơn mà không bị sao nhãng.</p>
-      </div>
+  <div class="container">
+    <h1>Ứng dụng của chúng tôi</h1>
+    <div class="app-grid" id="appList">
+      <!-- Danh sách ứng dụng sẽ được thêm tự động bằng JS -->
     </div>
-  </section>
-
-  <!-- Call to action -->
-  <section class="bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-12">
-    <div class="max-w-4xl mx-auto text-center px-6">
-      <h2 class="text-3xl font-bold mb-4">Hãy bắt đầu ngày mới rõ ràng!</h2>
-      <p class="mb-6 text-lg">Tải ngay ứng dụng và kết thúc ngày với sự hài lòng 🎉</p>
-<!--       <a href="#" class="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition">
-        🚀 Tải ứng dụng
-      </a> -->
-
-      <a href="https://play.google.com/store/apps/details?id=vn.lecon.smart_todo_list" 
-         target="_blank" 
-         rel="noopener noreferrer"
-         class="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition">
-        🚀 Tải ứng dụng
-      </a>
+    <div class="contact">
+      <p>Nhà phát triển: <strong>App Bridge</strong></p>
+      <p>Email: <a href="mailto:leconglongvu@gmail.com">leconglongvu@gmail.com</a></p>
+      <p>Số điện thoại: <a href="tel:0986495949">0986495949</a></p>
+      <p><a href="https://play.google.com/store/apps/dev?id=6205244028782286901" target="_blank">
+        Xem tất cả ứng dụng trên Google Play</a></p>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer class="text-center text-gray-500 py-6">
-    <p>&copy; 2025 Ngày Gọn Gàng. All rights reserved.</p>
-  </footer>
+  <script>
+    // Danh sách ứng dụng (thay tên file icon theo đúng trong thư mục logo)
+    const apps = [
+      {
+        name: "Công Suất Sạc",
+        icon: "logo/congsuatsac.png",
+        url: "https://play.google.com/store/apps/details?id=com.example.congsuatsac"
+      },
+      {
+        name: "App Khác",
+        icon: "logo/appkhac.png",
+        url: "https://play.google.com/store/apps/details?id=com.example.appkhac"
+      }
+    ];
+
+    const appList = document.getElementById("appList");
+    apps.forEach(app => {
+      const card = document.createElement("div");
+      card.className = "app-card";
+      card.innerHTML = `<img src="${app.icon}" alt="${app.name}">
+                        <div>${app.name}</div>`;
+      card.addEventListener("click", () => window.open(app.url, "_blank"));
+      appList.appendChild(card);
+    });
+  </script>
 </body>
 </html>
